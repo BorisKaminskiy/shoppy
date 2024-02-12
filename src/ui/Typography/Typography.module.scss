@@ -1,0 +1,56 @@
+.root {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.t16-20px400 {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 169%;
+
+  @media (max-width: 1000px) {
+    font-size: 20px;
+    line-height: 130%;
+  }
+}
+
+.t7px400 {
+  font-weight: 400;
+  font-size: 7px;
+  line-height: 54%;
+  letter-spacing: -0.02em;
+}
+
+.t16-12px400 {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 169%;
+
+  @media (max-width: 1000px) {
+    font-size: 12px;
+    line-height: 167%;
+  }
+}
+
+.t16px169 {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 169%;
+}
+
+.t20-18px400 {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 130%;
+
+  @media (max-width: 1000px) {
+    font-size: 18px;
+    line-height: 144%;
+  }
+}
+
+.t16px700 {
+  font-weight: 700;
+  font-size: 16px;
+  text-align: center;
+}

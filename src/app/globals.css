@@ -1,0 +1,71 @@
+:root {
+  --max-width: 1440px;
+  --inherit: inherit;
+  --white: #fff;
+  --black: #000;
+  --gray10: #d8d8d8;
+  --gray20: #efefef;
+  --gray30: #707070;
+  /* --green: #393;
+  --green-hover: rgb(96, 180, 96);
+  --green-active: rgb(38, 109, 38);
+  --txt-black: #282828;
+  --txt-gray: #8B8B8B; */
+
+  --radius-big: 12px;
+  --radius-small: 6px;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  width: 100vw;
+  /* display: flex; */
+  /* justify-content: center; */
+  overflow-x: hidden;
+}
+
+body {
+  max-width: var(--max-width);
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 96px;
+
+  @media (max-width: 1000px) {
+    padding: 0 16px;
+  }
+}
+/* 
+.wrapper {
+  width: 100%;
+  min-height: 832px;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+body::-webkit-scrollbar {
+  width: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+.toast_success {
+  background-color: green;
+}

@@ -1,0 +1,21 @@
+.root {
+  position: relative;
+  display: block;
+  width: 18px;
+  height: 18px;
+}
+
+.label {
+  position: absolute;
+  display: flex;
+  width: 11px;
+  height: 11px;
+  right: -6px;
+  top: -2px;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--black);
+  border-radius: 50%;
+  background-color: var(--white);
+  color: var(--white);
+}

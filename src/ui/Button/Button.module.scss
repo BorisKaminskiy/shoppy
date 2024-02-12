@@ -1,0 +1,45 @@
+.root {
+  all: unset;
+  width: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.primary {
+  border-radius: 5px;
+}
+
+.secondary {
+  padding: 16px 0;
+  background-color: transparent;
+  border: 1px solid var(--black);
+  border-radius: 4px;
+  color: var(--black);
+
+  transition: all 0.2s linear;
+
+  &:hover {
+    border-color: var(--gray30);
+    color: var(--gray30);
+    transition: all 0.2s linear;
+  }
+
+  &:active {
+    border: 3px solid var(--gray30);
+    transition: all 0.2s linear;
+  }
+}
+
+.small {
+  padding: 8px 0;
+}
+
+.medium {
+  padding: 12px 0;
+}
+
+.large {
+  padding: 17px 0;
+}

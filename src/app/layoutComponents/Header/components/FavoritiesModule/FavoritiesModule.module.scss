@@ -1,0 +1,25 @@
+.root {
+  display: flex;
+  height: 26px;
+  column-gap: 12px;
+  color: var(--black);
+ }
+
+.container {
+  position: relative;
+}
+
+.label {
+  position: absolute;
+  display: flex;
+  width: 11px;
+  height: 11px;
+  right: -6px;
+  top: -2px;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--black);
+  border-radius: 50%;
+  background-color: var(--white);
+  color: var(--white);
+}
