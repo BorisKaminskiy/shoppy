@@ -1,6 +1,13 @@
 .main {
   display: flex;
   flex-direction: column;
-	row-gap: 30px;
   padding-top: 15px;
+}
+
+.slider_wrapper {
+  padding-bottom: 64px;
+
+  @media (max-width: 1000px) {
+    padding-bottom: 21px;
+  }
 }

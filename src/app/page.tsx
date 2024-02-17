@@ -1,10 +1,13 @@
+import { FC } from "react";
+import cn from "classnames";
 import styles from "./page.module.scss";
 import Slider from "./components/Slider/Slider";
 
 export default function Home() {
   return (
-    <main className={styles.main}>
+    <main className={cn(styles.main)}>
       <Slider />
+
       <div>
         libero eveniet modi rem voluptas id, unde, ipsum molestiae temporibus
         recusandae inventore veniam quas culpa sint minima molestias. Blanditiis

@@ -4,17 +4,16 @@
   height: 60px;
   display: flex;
   flex-direction: column;
-  
 }
 
 .input {
   all: unset;
   display: flex;
+  align-items: center;
 }
 
 .primary {
-  padding: 18px 24px 18px 0;
-  // font-weight: 400;
+  padding: 0 24px 18px 0;
   border-bottom: 1px solid var(--gray10);
   color: var(--gray30);
   transition: border-color 0.2s linear;
@@ -48,20 +47,19 @@
   display: flex;
   align-items: center;
   right: 0;
-  top: 50%;
-  transition: fill .2s linear;
+  top: 10%;
+  transition: fill 0.2s linear;
   cursor: pointer;
 
   &:hover {
     svg {
       fill: black;
-      transition: fill .2s linear;
+      transition: fill 0.2s linear;
     }
   }
 }
 
 .error {
-
   font-size: 12px;
   color: red;
 }

@@ -20,10 +20,11 @@ const SearchInput: FC<ISearchInputProps> = ({
   onSearchClick,
   onClearClick,
   value,
+
   ...props
 }) => {
   const windowSize = useWindowSize();
-  
+
   return (
     <div className={cn(styles.root)}>
       <button

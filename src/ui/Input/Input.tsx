@@ -14,7 +14,7 @@ interface IInputProps
   kind?: "email";
   label?: string;
   value: string;
-  iconButton: TIconType;
+  iconButton?: TIconType;
   onButtonClick?: () => void;
   iconSize?: number;
   error?: string | null;

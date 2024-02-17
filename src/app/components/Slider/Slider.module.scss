@@ -1,3 +1,11 @@
+.slider_wrapper {
+  padding-bottom: 64px;
+
+  @media (max-width: 1000px) {
+    padding-bottom: 21px;
+  }
+}
+
 .root {
   display: block;
   width: 100%;
@@ -9,4 +17,3 @@
     max-height: 354px;
   }
 }
-

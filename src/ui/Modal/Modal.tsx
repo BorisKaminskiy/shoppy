@@ -25,7 +25,12 @@ const setTitle = (variant: TModal) => {
 
 const Modal: FC<IModalProps> = ({ variant, isOpen, onClose, ...props }) => {
   return (
-    <Dialog open={isOpen} onClose={onClose}>
+    <Dialog
+      open={isOpen}
+      onClose={onClose}
+      aria-label={`Модальное окно ${setTitle(variant)}`}
+      {...props}
+    >
       <div className={cn(styles.modal_background)}>
         <Dialog.Panel className={cn(styles.modal, styles[variant])}>
           <Dialog.Title style={{ textTransform: "uppercase" }}>

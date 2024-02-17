@@ -1,4 +1,15 @@
 .main {
-  
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
+  padding-top: 96px;
+
+  @media (max-width: 1000px) {
+    padding-top: 17px;
+  }
 }
 
+.wrapper {
+  display: flex;
+  column-gap: 35px;
+}
