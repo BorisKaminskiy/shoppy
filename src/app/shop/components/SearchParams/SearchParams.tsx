@@ -3,31 +3,28 @@
 import { FC, ChangeEvent, useState } from "react";
 import cn from "classnames";
 import styles from "./SearchParams.module.scss";
-
 import Input from "@/ui/Input/Input";
 import Select from "@/ui/Select/Select";
-import { IOptionProps } from "@/ui/Select/Select";
+import { IFilterParamsProps } from "@/api/getFilter";
 import Range from "@/ui/Range/Range";
+import Toggle from "@/ui/Toggle/Toggle";
 
-interface ISearchParamsProps {
-  categories: IOptionProps[];
-  minPrice: number;
-  maxPrice: number;
-}
-
-const SearchParams: FC<ISearchParamsProps> = ({
+const SearchParams: FC<IFilterParamsProps> = ({
   categories,
-  minPrice = 40,
-  maxPrice = 180,
+  minPrice,
+  maxPrice,
   ...props
 }) => {
   const [value, setValue] = useState<number>(minPrice);
+  const [isEnabled, setEnabled] = useState<boolean>(false);
 
   const onSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
     console.log(e.target.value);
   };
 
-  const onSelectChange = (id: number | string) => {};
+  const onSelectChange = (id: number) => {
+    console.log(id);
+  };
 
   const onRangeChange = (e: ChangeEvent<HTMLInputElement>) => {
     Number(e.target.value) > minPrice
@@ -39,6 +36,11 @@ const SearchParams: FC<ISearchParamsProps> = ({
     setValue(minPrice);
   };
 
+  const onTogle = () => {
+    setEnabled(!isEnabled);
+    console.log(isEnabled);
+  };
+
   return (
     <div
       className={cn(styles.root)}
@@ -48,9 +50,9 @@ const SearchParams: FC<ISearchParamsProps> = ({
       <Input
         onChange={onSearchChange}
         variant='primary'
-        iconButton='search'
-        iconSize={19}
-        value=''
+        // iconButton='search'
+        // iconSize={19}
+        value='vccvxc'
         placeholder='Поиск...'
         aria-label='Поиск'
       />
@@ -65,6 +67,13 @@ const SearchParams: FC<ISearchParamsProps> = ({
         value={Number(value)}
         max={Number(maxPrice)}
         onChange={onRangeChange}
+        aria-label='Изменение диапозона цены'
+      />
+      <Toggle
+        isEnabled={isEnabled}
+        setEnabled={onTogle}
+        label='Со скидкой'
+        aria-label={`Cо скидкой ${isEnabled ? "включено" : "выключено"}`}
       />
     </div>
   );
