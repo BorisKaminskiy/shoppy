@@ -13,10 +13,12 @@ interface IFavoritiesModuleProps {
   onClick?: () => void
 }
 
-const FavoritiesModule: FC<IFavoritiesModuleProps> = ({ ...props }) => {
-  const windowSize = useWindowSize();
-  let count = 12;
+//wil be added to store, temp
+let count = 12;
 
+const FavoritiesModule: FC<IFavoritiesModuleProps> = ({ ...props }) => {
+  const {isMobile} = useWindowSize();
+  
   return (
     <Link
       href={"/favorities"}
@@ -36,7 +38,7 @@ const FavoritiesModule: FC<IFavoritiesModuleProps> = ({ ...props }) => {
         )}
       </div>
 
-      {Number(windowSize.width) < 1000 && (
+      {isMobile && (
         <Typography variant='t16-20px400'>Избранное</Typography>
       )}
     </Link>

@@ -5,9 +5,11 @@ import Link from "next/link";
 import BusketIcon from "@/assets/icons/BusketIcon";
 import Typography from "@/ui/Typography/Typography";
 
-const BusketModule: FC = () => {
-  let count = 12;
+//under construction, will be added to store, temp
+let count = 12;
 
+const BusketModule: FC = () => {
+  
   return (
     <Link
       href={"/busket"}

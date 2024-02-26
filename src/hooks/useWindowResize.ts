@@ -1,30 +1,31 @@
-import {useState, useEffect} from 'react'
+'use client'
+
+import { useState, useEffect } from 'react'
 
 interface IWindowSize {
-  width: number | undefined
-  height: number | undefined
+  isDesktop: boolean
+  isMobile: boolean
+  width: number
+  
 }
 
 export const useWindowSize = (): IWindowSize => {
-  const [windowSize, setWindowSize] = useState<IWindowSize>({
-    width: undefined,
-    height: undefined,
-  });
+  const [windowSize, setWindowSize] = useState<number>(window.innerWidth);
 
   useEffect(() => {
-    function handleResize() {
-      setWindowSize({
-        width: window.innerWidth,
-        height: window.innerHeight,
-      });
+    const handleResize = (e: any) => {
+      setWindowSize(e.target.innerWidth)
     }
-    
+        
     window.addEventListener("resize", handleResize);
-    handleResize();
-   
+       
     return () => window.removeEventListener("resize", handleResize);
-  },
-    []); 
+  }, [])
+ 
   
-  return windowSize;
+  return {
+    isDesktop: windowSize > 1000,
+    isMobile: windowSize <= 1000,
+    width: windowSize
+  };
 }

@@ -14,7 +14,7 @@ interface IUserModuleProps {
 }
 
 const UserModule: FC<IUserModuleProps> = ({...props}) => {
-  const windowSize = useWindowSize();
+  const {isMobile} = useWindowSize();
   let user = true;
 
   return (
@@ -26,7 +26,7 @@ const UserModule: FC<IUserModuleProps> = ({...props}) => {
     >
       {!!user ? <UserIcon /> : <AuthIcon />}
 
-      {Number(windowSize.width) < 1000 && (
+      {isMobile && (
         <Typography variant='t16-20px400'>
           {!!user ? "Мой аккаунт" : "Войти в систему"}
         </Typography>

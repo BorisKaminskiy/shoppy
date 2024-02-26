@@ -11,3 +11,19 @@
     padding-bottom: 21px;
   }
 }
+
+.section_product {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 250px;
+
+  @media (max-width: 1000px) {
+    padding-bottom: 63px;
+  }
+}
+
+.section_title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

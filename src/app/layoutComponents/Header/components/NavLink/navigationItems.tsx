@@ -12,8 +12,6 @@ export type INavigationItem = {
   href: string;
 };
 
-// const asLinkTypes = <T,>(et: { [K in keyof T]: INavigationItem }) => et;
-
 export const navigationItems = [
   {
     link: "main",

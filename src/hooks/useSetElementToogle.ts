@@ -5,9 +5,8 @@ export const useElementToogle = () => {
   const elementRef = useRef() as RefObject<HTMLElement>;
 
   useEffect(() => {
-		const chechClickOutside = (e: MouseEvent) => {
-			
-      if (
+    const chechClickOutside = (e: MouseEvent) => {
+		  if (
         isOpen &&
         elementRef.current &&
         !elementRef.current.contains(e.target as Node)

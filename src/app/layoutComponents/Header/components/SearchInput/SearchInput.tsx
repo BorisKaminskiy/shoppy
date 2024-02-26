@@ -23,7 +23,8 @@ const SearchInput: FC<ISearchInputProps> = ({
 
   ...props
 }) => {
-  const windowSize = useWindowSize();
+  const {isDesktop} = useWindowSize();
+  
 
   return (
     <div className={cn(styles.root)}>
@@ -46,7 +47,7 @@ const SearchInput: FC<ISearchInputProps> = ({
         onClick={onClearClick}
         className={cn(styles.button_close)}
         aria-label={`Очистить ${
-          !!windowSize.width && windowSize.width >= 1000 && "и закрыть"
+          isDesktop && "и закрыть"
         } поиск`}
       >
         <CloseIcon variant={12} fill='#707070' />

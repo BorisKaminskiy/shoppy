@@ -60,3 +60,15 @@
   font-size: 14px;
   line-height: 157%;
 }
+
+.t20-14px600 {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 130%;
+
+  @media (max-width: 1000px) {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 157%;
+  }
+}

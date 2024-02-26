@@ -12,7 +12,8 @@ interface ITypographyProps
     | "t16px169"
     | "t20-18px400"
     | "t16px700"
-    | "t14px400";
+  | "t14px400"
+  |'t20-14px600'
   children: ReactNode;
   isUppercase?: boolean;
   isCenter?: boolean;

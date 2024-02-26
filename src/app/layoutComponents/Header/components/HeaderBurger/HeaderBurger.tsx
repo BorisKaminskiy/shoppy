@@ -41,7 +41,6 @@ const HeaderBurger: FC = () => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.2 }}
-          // onClick={() => setOpen(!isOpen)}
           aria-label='Навигационное меню'
         >
           <Search />

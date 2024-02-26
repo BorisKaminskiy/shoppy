@@ -11,7 +11,6 @@ import Modal from "@/ui/Modal/Modal";
 const FooterLinks: FC = ({ ...props }) => {
   const [modal, setModal] = useState<TModal | null>(null);
   const onLinkClick = (variant: TModal) => () => {
-    console.log(variant);
     setModal(variant);
   };
 

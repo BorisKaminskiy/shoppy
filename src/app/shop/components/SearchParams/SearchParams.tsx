@@ -1,13 +1,17 @@
 "use client";
 
-import { FC, ChangeEvent, useState } from "react";
+import { FC, ChangeEvent, useEffect } from "react";
 import cn from "classnames";
 import styles from "./SearchParams.module.scss";
 import Input from "@/ui/Input/Input";
 import Select from "@/ui/Select/Select";
-import { IFilterParamsProps } from "@/api/getFilter";
+import { IFilterParamsProps } from "@/api/types";
 import Range from "@/ui/Range/Range";
 import Toggle from "@/ui/Toggle/Toggle";
+import Button from "@/ui/Button/Button";
+import { useSearchParamsState } from "../../../../store/store";
+import { createSearchParams } from "@/utils/createSearchParams";
+import { useRouter } from "next/navigation";
 
 const SearchParams: FC<IFilterParamsProps> = ({
   categories,
@@ -15,30 +19,42 @@ const SearchParams: FC<IFilterParamsProps> = ({
   maxPrice,
   ...props
 }) => {
-  const [value, setValue] = useState<number>(minPrice);
-  const [isEnabled, setEnabled] = useState<boolean>(false);
+  const {
+    params,
+    changeName,
+    changeCategory,
+    changeMinPrice,
+    changeMaxPrice,
+    changeDiscounted,
+  } = useSearchParamsState();
+
+  
+  const router = useRouter();
+  useEffect(() => {
+    if (!params.priceMin && !params.priceMax) {
+      changeMinPrice(minPrice);
+      changeMaxPrice(maxPrice);
+    }
+  }, []);
 
   const onSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.value);
+    changeName(e.target.value);
   };
 
   const onSelectChange = (id: number) => {
-    console.log(id);
+    changeCategory(id);
   };
 
   const onRangeChange = (e: ChangeEvent<HTMLInputElement>) => {
-    Number(e.target.value) > minPrice
-      ? setValue(Number(e.target.value))
-      : setValue(minPrice);
-  };
-
-  const onRangeClick = () => {
-    setValue(minPrice);
+    changeMinPrice(Number(e.target.value));
   };
 
   const onTogle = () => {
-    setEnabled(!isEnabled);
-    console.log(isEnabled);
+    changeDiscounted(!params.discounted);
+  };
+
+  const onSearchParamsApplyClick = () => {
+    router.push(`?${createSearchParams(params)}`);
   };
 
   return (
@@ -50,9 +66,7 @@ const SearchParams: FC<IFilterParamsProps> = ({
       <Input
         onChange={onSearchChange}
         variant='primary'
-        // iconButton='search'
-        // iconSize={19}
-        value='vccvxc'
+        value={params.name}
         placeholder='Поиск...'
         aria-label='Поиск'
       />
@@ -64,17 +78,22 @@ const SearchParams: FC<IFilterParamsProps> = ({
       />
       <Range
         min={Number(minPrice)}
-        value={Number(value)}
+        value={!!params.priceMin ? params.priceMin : Number(minPrice)}
         max={Number(maxPrice)}
         onChange={onRangeChange}
         aria-label='Изменение диапозона цены'
       />
       <Toggle
-        isEnabled={isEnabled}
+        isEnabled={params.discounted}
         setEnabled={onTogle}
         label='Со скидкой'
-        aria-label={`Cо скидкой ${isEnabled ? "включено" : "выключено"}`}
+        aria-label={`Cо скидкой ${
+          params.discounted ? "включено" : "выключено"
+        }`}
       />
+      <Button variant='secondary' onClick={onSearchParamsApplyClick}>
+        Применить
+      </Button>
     </div>
   );
 };

@@ -9,7 +9,7 @@ interface IToggleProps
     HTMLInputElement
   > {
   label?: string
-  isEnabled: boolean;
+  isEnabled: boolean | undefined;
   setEnabled: () => void;
 }
 

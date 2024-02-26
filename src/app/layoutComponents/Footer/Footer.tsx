@@ -19,7 +19,7 @@ const Footer: FC<IFooterProps> = ({ ...props }) => {
       </div>
       <div className={cn(styles.footer_section)}>
         <Typography variant='t16px169' color='black'>
-          © 2024 Shoppe
+          &#169; 2024 Shoppe
         </Typography>
         <FooterSocialLinks />
       </div>
