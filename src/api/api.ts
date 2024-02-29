@@ -20,12 +20,11 @@ export const API = {
 		return console.error(error) 
 	}
 	},
-	getProducts: async (searchParams: string = ''): Promise<IProductsResponseProps | void> => {
-	try {
+	getProducts: async (searchParams: string = 'limit=1000&offset=0'): Promise<IProductsResponseProps | undefined> => {
+		try {
 		const products = await fetch(endpoints.products.getProducts
-			+`${!!searchParams && `?${searchParams}`}`
-			
-			, {
+			+ `?${searchParams}`,
+			{
 			next: {
 				revalidate: 60000,
 			}
@@ -35,7 +34,7 @@ export const API = {
 		}
 		return products.json()
 	} catch (error) {
-		return console.error(error) 
+		console.error(error) 
 	}
 	},
 	getProductBySku: async (sku: number): Promise<IProductProps | void> => {

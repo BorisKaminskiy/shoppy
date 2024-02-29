@@ -20,34 +20,36 @@
 
 html {
   width: 100vw;
-  /* display: flex; */
-  /* justify-content: center; */
+  display: flex;
+  justify-content: center;
   overflow-x: hidden;
+  
 }
 
 body {
-  max-width: var(--max-width);
-  width: 100%;
-  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 0 96px;
+  max-width: var(--max-width);
+  margin: 0 96px;
   overflow: hidden;
-
-  @media (max-width: 1000px) {
-    padding: 0 16px;
+   
+  @media (max-width: 1399px) {
+    margin: 0 6vw;
   }
 }
-/* 
+
 .wrapper {
   width: 100%;
-  min-height: 832px;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-} */
+  display: block;
+
+  @media (max-width: 1000px) {
+    padding-right: 6%;
+  padding-left: 6%;  
+  }
+  
+  
+  
+}
 
 body::-webkit-scrollbar {
   width: 0;
