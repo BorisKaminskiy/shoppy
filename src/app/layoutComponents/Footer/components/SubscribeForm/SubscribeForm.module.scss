@@ -1,0 +1,14 @@
+.root {
+  width: 396px;
+  display: flex;
+
+  @media (max-width: 1000px) {
+    width: 288px;
+    column-gap: 20px;
+  }
+}
+
+.toaster {
+  width: 100%;
+  background-color: aqua;
+}

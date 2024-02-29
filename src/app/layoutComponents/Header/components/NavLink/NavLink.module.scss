@@ -1,0 +1,28 @@
+.root {
+  position: relative;
+  bottom: -4px;
+  display: flex;
+  height: 100%;
+  border: 2px solid transparent;
+  transition: border-color 0.2s linear;
+
+  // &:hover {
+  //   border-bottom: 2px solid var(--black);
+  //   transition: border-color 0.2s linear;
+  // }
+
+  @media (min-width: 1000px) {
+    &:hover {
+      border-bottom: 2px solid var(--black);
+      transition: border-color 0.2s linear;
+    }
+  }
+
+  @media (max-width: 999px) {
+    
+    &:hover {
+      border-right: 2px solid var(--black);
+      transition: border-color 0.2s linear;
+    }
+  }
+}

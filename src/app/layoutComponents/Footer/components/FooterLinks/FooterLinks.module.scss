@@ -1,0 +1,13 @@
+.root {
+  display: flex;
+  column-gap: 29px;
+
+  @media (max-width: 1000px) {
+    flex-direction: column;
+    row-gap: 12px;
+  }
+}
+
+.footer_link {
+	cursor: pointer;
+}

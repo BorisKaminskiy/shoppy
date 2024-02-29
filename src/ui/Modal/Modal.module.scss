@@ -1,0 +1,32 @@
+.modal_background {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba($color: #000000, $alpha: 0.7);
+}
+
+.modal {
+  position: relative;
+  width: 600px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px;
+	row-gap: 30px;
+  background-color: var(--white);
+  border-radius: 12px;
+}
+
+.button_close {
+  all: unset;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+}

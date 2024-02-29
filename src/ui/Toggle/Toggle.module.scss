@@ -1,0 +1,29 @@
+.root {
+  display: flex;
+  justify-content: space-between;
+}
+
+.toggle {
+  appearance: none;
+  width: 34px;
+  height: 20px;
+  display: flex;
+  padding: 0 4px;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: var(--gray30);
+  border-radius: 10px;
+
+  &::before {
+    content: "";
+    width: 12px;
+    height: 12px;
+    background-color: var(--white);
+    border-radius: 50%;
+    cursor: pointer;
+  }
+}
+
+.toggle_active {
+  justify-content: flex-end;
+}

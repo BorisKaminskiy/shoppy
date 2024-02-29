@@ -1,0 +1,15 @@
+.root {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.lg {
+}
+
+.image {
+  @media (max-width: 1200px) {
+    width: 30vw;
+    height: auto;
+  }
+}

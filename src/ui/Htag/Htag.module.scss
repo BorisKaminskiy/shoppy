@@ -1,0 +1,19 @@
+.h1 {
+  font-weight: 500;
+  font-size: 33px;
+  line-height: 130%;
+
+  @media (max-width: 1000px) {
+    font-size: 28px;
+    line-height: 154%;
+  }
+}
+
+.h2 {
+}
+
+.h3 {
+}
+
+.h4 {
+}

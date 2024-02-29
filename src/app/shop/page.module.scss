@@ -1,0 +1,27 @@
+.main {
+  display: flex;
+  padding-top: 96px;
+  column-gap: 35px;
+
+  @media (max-width: 1000px) {
+    padding-top: 17px;
+  }
+}
+
+.outer_wrapper {
+  flex-direction: column;
+  row-gap: 40px;
+}
+
+.wrapper {
+  display: flex;
+  column-gap: 35px;
+}
+
+.product_cards {
+  width: auto;
+  display: flex;
+  flex-wrap: wrap;
+  // flex-direction: column;
+
+}
