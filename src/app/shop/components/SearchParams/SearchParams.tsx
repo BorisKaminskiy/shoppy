@@ -5,7 +5,7 @@ import cn from "classnames";
 import styles from "./SearchParams.module.scss";
 import Input from "@/ui/Input/Input";
 import Select from "@/ui/Select/Select";
-import { IFilterParamsProps } from "@/api/types";
+import { IFilterProps } from '@/types/filter';
 import Range from "@/ui/Range/Range";
 import Toggle from "@/ui/Toggle/Toggle";
 import Button from "@/ui/Button/Button";
@@ -13,12 +13,13 @@ import { useSearchParamsState } from "../../../../store/store";
 import { createSearchParams } from "@/utils/createSearchParams";
 import { useRouter } from "next/navigation";
 
-const SearchParams: FC<IFilterParamsProps> = ({
+const SearchParams: FC<IFilterProps> = ({
   categories,
   minPrice,
   maxPrice,
   ...props
 }) => {
+  
   const {
     params,
     changeName,

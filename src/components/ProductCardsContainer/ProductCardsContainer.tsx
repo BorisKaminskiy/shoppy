@@ -1,15 +1,17 @@
+'use client'
+
 import { FC, DetailedHTMLProps, HTMLAttributes } from "react";
 import ProductCard from '@/ui/ProductCard/ProductCard';
 import cn from "classnames";
 import styles from "./ProductCardsContainer.module.scss";
+import { IProductProps } from '@/types/products';
 
-import { IProductsResponseProps } from "@/types/products";
 
 interface IProductCardsContainerProps
   extends DetailedHTMLProps<HTMLAttributes<HTMLUListElement>,HTMLUListElement>
    {
   variant: "main" | "shop" | "favorities";
-  products: IProductsResponseProps | undefined;
+  products: IProductProps[] | [] | undefined;
 }
 
 const ProductCardsContainer: FC<IProductCardsContainerProps> = ({
@@ -17,11 +19,14 @@ const ProductCardsContainer: FC<IProductCardsContainerProps> = ({
   variant,
   ...props
 }) => {
+
+  console.log(products)
+
   return (
     <ul className={cn(styles.root, styles[variant])} {...props}>
       {products &&
-        products.products.length &&
-        products.products.map((item) => <ProductCard key={ item.sku } { ...item} variant='lg'/>)}
+        products.length &&
+        products.map((item) => <ProductCard key={ item.sku + Date.now()  } { ...item} variant='lg'/>)}
     </ul>
   );
 };

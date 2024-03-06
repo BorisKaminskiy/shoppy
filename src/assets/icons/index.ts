@@ -13,7 +13,7 @@ export * from './CloseIcon'
 export * from './ExitIcon'
 export * from './ArrowLeftIcon'
 export * from './SuccessIcon'
-// export * from '.'
+export * from './EyeIcon'
 // export * from '.'
 
 

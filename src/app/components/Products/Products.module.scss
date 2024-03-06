@@ -1,0 +1,18 @@
+.section_products {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 39px;
+  padding-bottom: 250px;
+
+  @media (max-width: 1000px) {
+    padding-bottom: 63px;
+    row-gap: 14px;
+  }
+}
+
+.section_title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

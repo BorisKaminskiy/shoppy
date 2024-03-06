@@ -4,7 +4,9 @@
   column-gap: 35px;
 
   @media (max-width: 1000px) {
+    flex-direction: column;
     padding-top: 17px;
+    row-gap: 15px;
   }
 }
 
@@ -16,6 +18,19 @@
 .wrapper {
   display: flex;
   column-gap: 35px;
+
+  @media (max-width: 1001px) {
+    display: none;
+  }
+}
+
+.search_params__mobile {
+  display: none;
+
+  @media (max-width: 1000px) {
+    display: block;
+  }
+
 }
 
 .product_cards {

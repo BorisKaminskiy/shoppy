@@ -72,3 +72,16 @@
     line-height: 157%;
   }
 }
+
+.t20-12px400 {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 130%;
+  
+  @media (max-width: 1000px) {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 167%;
+    
+  }
+}

@@ -28,6 +28,7 @@ const Header: FC = () => {
           <NavLink variant='shop' />
           <NavLink variant='about' />
         </nav>
+        <div className={cn(styles.divider)}></div>
         <div className={cn(styles.wrapper)}>
           <Search />
           <nav

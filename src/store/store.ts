@@ -1,8 +1,18 @@
 import { create } from 'zustand'
 
+enum EParams {
+	offset,
+	name,
+	priceMin,
+	priceMax,
+	categoryId,
+	discounted
+}
+
+export type TParams = keyof typeof EParams
+
 export interface IParamsProps {
-	limit?: number,
-	offset?: string,
+	offset: string,
 	name?: string,
 	priceMin?: number | null,
 	priceMax?: number | null,
@@ -12,7 +22,7 @@ export interface IParamsProps {
 
 interface IUseSearchParamsStateProps {
 	params: IParamsProps
-	changeOffset: (offset: number) => void
+	changeOffset: (offset: string) => void
 	changeName: (name: string) => void
 	changeMinPrice: (priceMin: number) => void
 	changeMaxPrice: (priceMax: number) => void
@@ -23,7 +33,6 @@ interface IUseSearchParamsStateProps {
 export const useSearchParamsState = create<IUseSearchParamsStateProps>(set => (
 	{
 		params: {
-			limit: 1000,
 			offset: '0',
 			name: '',
 			priceMin: null,
@@ -31,8 +40,8 @@ export const useSearchParamsState = create<IUseSearchParamsStateProps>(set => (
 			categoryId: null,
 			discounted: false
 		},
-		changeOffset: (offset: number) => set(state => {
-			return {params: {...state.params, offset: String(offset)}}
+		changeOffset: (offset: string) => set(state => {
+			return {params: {...state.params, offset}}
 		}),
 		changeName: (name) => set(state => {
 			return {params: {...state.params, name}}
