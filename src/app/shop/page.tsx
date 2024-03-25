@@ -16,9 +16,10 @@ interface IParamProps {
 export default async function Shop({ params, searchParams }: IParamProps) {
   const sParams = createSearchParams(searchParams);
   const filter = await API.getFilter();
-  let products = await API.getProducts(
-    !!sParams.length ? "limit=6&" + sParams : "limit=1000&offset=0"
-  );
+
+  let products = Object.keys(sParams).length
+    ? await API.getProducts(sParams)
+    : await API.getProducts();
 
   return (
     <main className={cn(styles.main)}>

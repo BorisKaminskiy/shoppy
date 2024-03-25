@@ -8,9 +8,11 @@ import { motion } from "framer-motion";
 import SearchParams from "../SearchParams/SearchParams";
 import { IFilterProps } from "@/types/filter";
 import Button from "@/ui/Button/Button";
+import SearchParamsIcon from "@/assets/icons/SearchParamsIcon";
+import Typography from "@/ui/Typography/Typography";
 
 interface IMobileSearchParams {
-	props: IFilterProps
+  props: IFilterProps;
 }
 
 export const MobileSearchParams: FC<IFilterProps> = ({ ...props }) => {
@@ -26,7 +28,12 @@ export const MobileSearchParams: FC<IFilterProps> = ({ ...props }) => {
       aria-expanded={isOpen ? true : false}
     >
       <Button variant='primary' onClick={() => setOpen(!isOpen)}>
-        aaa
+        <div className={cn(styles.button)}>
+          <SearchParamsIcon />
+          <Typography variant='t16-12px400' color='gold'>
+            Фильтры
+          </Typography>
+        </div>
       </Button>
       {/* <HeaderBurgerButton onClick={() => setOpen(!isOpen)} isActive={isOpen} /> */}
 

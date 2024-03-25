@@ -33,6 +33,7 @@ interface IUseSearchParamsStateProps {
 export const useSearchParamsState = create<IUseSearchParamsStateProps>(set => (
 	{
 		params: {
+			limit: 6,
 			offset: '0',
 			name: '',
 			priceMin: null,

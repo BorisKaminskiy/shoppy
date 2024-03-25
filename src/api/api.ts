@@ -8,11 +8,12 @@ export const API = {
 	getFilter: async (): Promise<IFilterProps | void> => {
 	try {
 		const filter = await fetch(endpoints.products.getFilter, {
-			// next: {
-			// 	revalidate: 60000,
-			// }
+			next: {
+				revalidate: 60000,
+			}
 		})
-			if (!filter.status) {
+		
+		if (filter.status !== 200) {
 				throw new Error ('Ошибка получения данных') 
 			}
 			return filter.json()
@@ -20,24 +21,28 @@ export const API = {
 		return console.error(error) 
 	}
 	},
-	getProducts: async (searchParams: string): Promise<IProductsResponseProps | undefined> => {
+	getProducts: async (searchParams: string = 'limit=1000&offset=0'): Promise<IProductsResponseProps | undefined> => {
 		try {
 		const products = await fetch(endpoints.products.getProducts
 			+ `?${searchParams}`,
 			{
-			// next: {
-			// 	revalidate: 60000,
-			// }
-		})
-		if (!products.status) {
+			next: {
+				revalidate: 10,
+			}
+			})
+			
+			
+		if (products.status !== 200) {
 		  throw new Error ('Ошибка получения данных') 
-		}
+			}
+			
 		return products.json()
 	} catch (error) {
 		console.error(error) 
 	}
 	},
 	getProductBySku: async (sku: number): Promise<IProductProps | void> => {
+		// console.log(endpoints.products.getProductBySku + `/${sku}`)
 	try {
 		const product = await fetch(endpoints.products.getProductBySku
 			+ `/${sku}`
@@ -45,8 +50,9 @@ export const API = {
 			// next: {
 			// 	revalidate: 60000,
 			// }
-		})
-		if (!product.status) {
+			})
+				
+		if (product.status !== 200) {
 		  throw new Error ('Ошибка получения данных') 
 		}
 		return product.json()

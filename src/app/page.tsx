@@ -6,7 +6,7 @@ import { API } from "@/api/api";
 
 export default async function Home() {
   const products = await API.getProducts("limit=6&offset=0");
-  
+    
   return (
     <main className={cn(styles.main)}>
       <Slider />

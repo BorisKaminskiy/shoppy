@@ -14,7 +14,7 @@ export * from './ExitIcon'
 export * from './ArrowLeftIcon'
 export * from './SuccessIcon'
 export * from './EyeIcon'
-// export * from '.'
+export * from './SearchParamsIcon'
 
 
 
