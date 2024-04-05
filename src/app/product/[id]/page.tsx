@@ -37,7 +37,10 @@ const Product = async ({ params }: IParamProps) => {
 
   return (
     <main className={cn(styles.main)}>
-      dfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdfdf
+      <div className={ cn(styles.product) }>
+        
+      </div>
+      <div className={cn(styles.description)}></div>
     </main>
   );
 };

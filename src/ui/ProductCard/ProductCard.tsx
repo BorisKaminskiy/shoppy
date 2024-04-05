@@ -1,6 +1,12 @@
 "use client";
 
-import { DetailedHTMLProps, FC, LiHTMLAttributes, useState } from "react";
+import {
+  DetailedHTMLProps,
+  FC,
+  LiHTMLAttributes,
+  MouseEventHandler,
+  useState,
+} from "react";
 import cn from "classnames";
 import styles from "./ProductCard.module.scss";
 import { IProductProps } from "@/types/products";
@@ -11,8 +17,8 @@ import BusketIcon from "@/assets/icons/BusketIcon";
 import FavoriteIcon from "@/assets/icons/FavoriteIcon";
 import EyeIcon from "@/assets/icons/EyeIcon";
 import { motion } from "framer-motion";
-import { useFavoritiesState } from "@/store/favorities";
-import { favorities } from '@/store/expStore';
+import { favorities } from "@/store/expStore";
+import { useRouter } from "next/navigation";
 
 interface IProductCardProps
   extends DetailedHTMLProps<LiHTMLAttributes<HTMLLIElement>, HTMLLIElement>,
@@ -33,9 +39,20 @@ const ProductCard: FC<IProductCardProps> = ({
   ...props
 }) => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
+  const router = useRouter();
+
+  const onCardViewClick = (sku: number) => (e: any) => {
+    router.push(`/product/${sku}`);
+  };
+
+  const onBusketClick = (sku: number) => (e: any) => {
+    e.stopPropagation();
+    console.log(sku);
+  };
+
   // const fav = favorities.getAllFAvorities()
   // console.log(fav)
-  // const favorities = useFavoritiesState(state => state.favorities) 
+  // const favorities = useFavoritiesState(state => state.favorities)
   // const addToFavorities = favorities.addToFavorities(sku)
   const isFavorited = favorities.checkSkuInFavorities(sku);
 
@@ -53,6 +70,7 @@ const ProductCard: FC<IProductCardProps> = ({
       {...props}
       onMouseEnter={setVisible}
       onMouseLeave={setUnvisible}
+      onClick={onCardViewClick(sku)}
     >
       {images.length && (
         <div className={cn(styles.image_wrapper)}>
@@ -71,14 +89,23 @@ const ProductCard: FC<IProductCardProps> = ({
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
             >
-              <Button variant='icon' width={30} aria-label='Добавить в корзину'>
+              <Button
+                onClick={onBusketClick(sku)}
+                variant='icon'
+                width={30}
+                aria-label='Добавить в корзину'
+              >
                 <BusketIcon />
               </Button>
               <Button variant='icon' width={30} aria-label='Посмотреть товар'>
                 <EyeIcon />
               </Button>
               <Button
-                onClick={() => isFavorited? favorities.removeFromFavorities(sku) : favorities.addToFavorities(sku)}
+                onClick={() =>
+                  isFavorited
+                    ? favorities.removeFromFavorities(sku)
+                    : favorities.addToFavorities(sku)
+                }
                 // disabled={isFavorited}
                 variant='icon'
                 width={30}
@@ -121,7 +148,7 @@ const ProductCard: FC<IProductCardProps> = ({
           )}
         </div>
         <div className={cn(styles.info_controls)}>
-          {isFavorited && <FavoriteIcon fill='#a18a68'/>}
+          {isFavorited && <FavoriteIcon fill='#a18a68' />}
         </div>
       </div>
     </li>
