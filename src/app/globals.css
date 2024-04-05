@@ -7,6 +7,7 @@
   --gray20: #efefef;
   --gray30: #707070;
   --gold: #a18a68;
+  --red: #d82700;
 
   --radius-big: 12px;
   --radius-small: 6px;
@@ -23,16 +24,16 @@ html {
   display: flex;
   justify-content: center;
   overflow-x: hidden;
-  
 }
 
 body {
   display: flex;
   flex-direction: column;
   max-width: var(--max-width);
+  width: 100%;
   margin: 0 96px;
   overflow: hidden;
-   
+
   @media (max-width: 1399px) {
     margin: 0 6vw;
   }
@@ -44,11 +45,8 @@ body {
 
   @media (max-width: 1000px) {
     padding-right: 6%;
-  padding-left: 6%;  
+    padding-left: 6%;
   }
-  
-  
-  
 }
 
 body::-webkit-scrollbar {

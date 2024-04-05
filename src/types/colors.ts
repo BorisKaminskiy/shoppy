@@ -5,7 +5,8 @@ export enum EColors {
   gray10,
   gray20,
   gray30,
-  gold
+  gold,
+  red
 
 }
 

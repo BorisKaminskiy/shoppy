@@ -1,6 +1,9 @@
+'use client'
+
 import { FC } from "react";
 import cn from "classnames";
 import styles from "./BusketModule.module.scss";
+import { usePathname } from 'next/navigation';
 import Link from "next/link";
 import BusketIcon from "@/assets/icons/BusketIcon";
 import Typography from "@/ui/Typography/Typography";
@@ -9,22 +12,25 @@ import Typography from "@/ui/Typography/Typography";
 let count = 12;
 
 const BusketModule: FC = () => {
+  const pathName = usePathname();
   
   return (
-    <Link
-      href={"/busket"}
-      className={cn(styles.root)}
-      aria-label='Навигационная ссылка корзина товаров'
-    >
-      <BusketIcon />
-      {!!count && (
-        <div className={cn(styles.label)}>
-          <Typography variant='t7px400' color='black'>
-            {count}
-          </Typography>
-        </div>
-      )}
-    </Link>
+    <div className={cn(styles.root, pathName === "/busket" && styles.active)}>
+      <Link
+        href={"/busket"}
+        className={cn(styles.link)}
+        aria-label='Навигационная ссылка корзина товаров'
+      >
+        <BusketIcon />
+        {!!count && (
+          <div className={cn(styles.label)}>
+            <Typography variant='t7px400' color='black'>
+              {count}
+            </Typography>
+          </div>
+        )}
+      </Link>
+    </div>
   );
 };
 

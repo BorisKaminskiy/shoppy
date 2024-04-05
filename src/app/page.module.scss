@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 15px;
 }
 
 .slider_wrapper {
@@ -14,20 +13,3 @@
   }
 }
 
-.section_products {
-  display: flex;
-  flex-direction: column;
-  row-gap: 39px;
-  padding-bottom:250px;
-  
-  @media (max-width: 1000px) {
-    padding-bottom: 63px;
-  }
-}
-
-.section_title {
-  // width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}

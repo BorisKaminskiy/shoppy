@@ -5,20 +5,21 @@ import SearchParams from "./components/SearchParams/SearchParams";
 import { API } from "@/api/api";
 import { IParamsProps } from "@/store/store";
 import { createSearchParams } from "@/utils/createSearchParams";
+import ProductCardsContainer from "@/components/ProductCardsContainer/ProductCardsContainer";
+import { MobileSearchParams } from "./components/MobileSearchParams/MobileSearchParams";
 
 interface IParamProps {
   params?: any;
-  searchParams: IParamsProps | {};
+  searchParams: IParamsProps;
 }
 
 export default async function Shop({ params, searchParams }: IParamProps) {
   const sParams = createSearchParams(searchParams);
   const filter = await API.getFilter();
-  let products;
 
-  Object.keys(searchParams).length
-    ? (products = await API.getProducts(sParams))
-    : (products = await API.getProducts(`limit=1000&offset=0`));
+  let products = Object.keys(sParams).length
+    ? await API.getProducts(sParams)
+    : await API.getProducts();
 
   return (
     <main className={cn(styles.main)}>
@@ -30,12 +31,13 @@ export default async function Shop({ params, searchParams }: IParamProps) {
           {!!filter && <SearchParams {...filter} />}
         </section>
       </div>
-      <div className={cn(styles.product_cards)}>
-        {!!products &&
-          !!products.products.length &&
-          products.products.map((item) => (
-            <div key={item.sku}>{item.name}</div>
-          ))}
+      <div className={cn(styles.search_params__mobile)}>
+        {!!filter && <MobileSearchParams {...filter} />}
+      </div>
+      <div className={cn(styles.product_cards)} key={sParams}>
+        {products && (
+          <ProductCardsContainer products={products.products} variant='main' />
+        )}
       </div>
     </main>
   );

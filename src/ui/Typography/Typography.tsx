@@ -12,12 +12,14 @@ interface ITypographyProps
     | "t16px169"
     | "t20-18px400"
     | "t16px700"
-  | "t14px400"
-  |'t20-14px600'
+    | "t14px400"
+    | "t20-14px600"
+    | "t20-12px400";
   children: ReactNode;
   isUppercase?: boolean;
   isCenter?: boolean;
   isBold?: boolean;
+  isLineThrough?: boolean;
   color?: TColors;
 }
 
@@ -28,6 +30,7 @@ const Typography: FC<ITypographyProps> = ({
   isUppercase,
   isCenter,
   isBold,
+  isLineThrough,
   ...props
 }): JSX.Element => {
   return (
@@ -41,6 +44,7 @@ const Typography: FC<ITypographyProps> = ({
         color: `var(--${color})`,
         textTransform: isUppercase ? "uppercase" : "none",
         textAlign: isCenter ? "center" : "inherit",
+        textDecoration: isLineThrough ? "line-through" : "none",
       }}
       {...props}
     >

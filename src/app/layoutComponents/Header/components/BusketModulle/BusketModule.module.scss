@@ -1,8 +1,26 @@
 .root {
   position: relative;
+  width: 24px;
+  // bottom: -4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 2px solid transparent;
+
+  &:hover {
+      border-bottom: 2px solid var(--black);
+
+  @media (min-width: 1000px) {
+    border-bottom: 2px solid var(--black);
+    transition: border-color 0.2s linear;
+  }
+  }
+
+}
+
+.link {
+  position: relative;
   display: block;
-  width: 18px;
-  height: 18px;
 }
 
 .label {
@@ -18,4 +36,19 @@
   border-radius: 50%;
   background-color: var(--white);
   color: var(--white);
+}
+
+.active {
+  
+  border-bottom: 2px solid var(--black);
+
+  @media (min-width: 1000px) {
+    border-bottom: 2px solid var(--black);
+    transition: border-color 0.2s linear;
+  }
+
+  // @media (max-width: 999px) {
+  //   border-right: 2px solid var(--black);
+  //   transition: border-color 0.2s linear;
+  // }
 }

@@ -9,7 +9,7 @@ interface IButtonProps
     HTMLButtonElement
   > {
   children: ReactNode;
-  variant: "primary" | "secondary";
+  variant: "primary" | "secondary" | "icon";
   size?: "small" | "medium" | "large";
   width?: number;
   isUppercase?: boolean;
@@ -18,8 +18,8 @@ interface IButtonProps
 
 const Button: FC<IButtonProps> = ({
   children,
-	variant = "primary",
-	width,
+  variant = "primary",
+  width,
   isUppercase,
   isBold,
   ...props
